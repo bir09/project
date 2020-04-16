@@ -19,42 +19,42 @@ public class FilterTest extends TestBase {
         loginPage.login(ConfigurationReader.getProperty("username_helpdesk8"), ConfigurationReader.getProperty("password"));
         test.info("Click on the filter and search box ");
         message.fSBox.click();
-        test.info("Verify the list on the filter side bar");
-        Thread.sleep(2000);
-        List<WebElement> filterList = message.fSideBar;
-        System.out.println(filterList);
 
+        Thread.sleep(3000);
         test.info("Verify user is able to click on work");
         message.workbtn.click();
+        Thread.sleep(3000);
         test.info("make sure in the search box");
-        System.out.println(message.verifyFilter);
+        System.out.println(message.verifyFilter.getText());
         Thread.sleep(2000);
         test.info("remove work");
         message.removeBtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         test.info("click search Box");
         message.fSBox.click();
         Thread.sleep(2000);
+
 
         test.info("Verify user is able to click on Favorites");
         message.favBtn.click();
-        test.info("make sure it in the search box");
-        System.out.println(message.verifyFilter);
         Thread.sleep(2000);
+        test.info("make sure it in the search box");
+        System.out.println(message.verifyFilter.getText());
         test.info("remove favorites");
         message.removeBtn.click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         test.info("click search Box");
         message.fSBox.click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
 
         test.info("Verify user is able to click on My Activity");
         message.activityBtn.click();
-        test.info("make sure in the search box");
-        System.out.println(message.verifyFilter);
         Thread.sleep(2000);
+        test.info("make sure in the search box");
+        System.out.println(message.verifyFilter.getText());
         test.info("remove My Activity");
         message.removeBtn.click();
+        Thread.sleep(2000);
         test.info("click search Box");
         message.fSBox.click();
         Thread.sleep(3000);
@@ -63,30 +63,29 @@ public class FilterTest extends TestBase {
         message.annBtn.click();
         Thread.sleep(2000);
         test.info("make sure in the search box");
-        System.out.println(message.verifyFilter);
+        System.out.println(message.verifyFilter.getText());
         Thread.sleep(2000);
         test.info("remove announcements");
         message.removeBtn.click();
+        Thread.sleep(2000);
+        test.info("click search Box");
+        message.fSBox.click();
         Thread.sleep(3000);
-        test.info("click search Box");
-        message.fSBox.click();
-        Thread.sleep(2000);
 
-        test.info("click search Box");
-        message.fSBox.click();
-        Thread.sleep(2000);
+
+
         test.info("Verify user is able to click on Workflow");
         message.workFlowBtn.click();
         Thread.sleep(2000);
         test.info("make sure in the search box");
-        System.out.println(message.verifyFilter);
+        System.out.println(message.verifyFilter.getText());
         Thread.sleep(2000);
         test.info("remove workFlow");
         message.removeBtn.click();
         Thread.sleep(3000);
         test.info("click search Box");
         message.fSBox.click();
-        Thread.sleep(2000);
+
 
 
 
