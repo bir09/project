@@ -1,6 +1,7 @@
 package com.bitrix24.tests;
 
 import com.bitrix24.base.TestBase;
+import com.bitrix24.utilities.BrowserUtilities;
 import com.bitrix24.utilities.ConfigurationReader;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import static org.testng.Assert.*;
@@ -15,14 +16,17 @@ public class InsertLinkURL extends TestBase {
         loginPage.login(ConfigurationReader.getProperty("username_helpdesk7"),
                 ConfigurationReader.getProperty("password"));
 
+
         test.info("2. Click on message tab");
+        BrowserUtilities.wait(2);
         message.messageTab.click();
 
         test.info("3. Click on link icon");
+        BrowserUtilities.wait(2);
         message.linkIcon.click();
 
         test.info("4. Enter the URL");
-        message.link.sendKeys("https://www.youtube.com/watch?v=CRlGDDprdOQ");
+        message.link.sendKeys("hhttps://www.youtube.com/watch?v=CRlGDDprdOQ");
 
         test.info("5. Click on the save button");
         wait.until(ExpectedConditions.elementToBeClickable(message.saveButton));
