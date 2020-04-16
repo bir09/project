@@ -3,6 +3,8 @@ package com.bitrix24.base;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.bitrix24.pages.LoginPage;
+import com.bitrix24.pages.Message;
 import com.bitrix24.utilities.BrowserUtilities;
 import com.bitrix24.utilities.Driver;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +25,9 @@ public class TestBase {
     protected ExtentReports report;
     protected ExtentTest test;
     private ExtentHtmlReporter htmlReporter;
+    protected LoginPage loginPage;
+
+    protected Message message;
     @BeforeSuite
     public void setUpSuite(){
         report=new ExtentReports();
