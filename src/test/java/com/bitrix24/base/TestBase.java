@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.bitrix24.pages.LoginPage;
 import com.bitrix24.pages.Message;
+import com.bitrix24.pages.Poll;
 import com.bitrix24.utilities.BrowserUtilities;
 import com.bitrix24.utilities.Driver;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class TestBase {
     protected ExtentTest test;
     private ExtentHtmlReporter htmlReporter;
     protected LoginPage loginPage;
+    protected Poll poll;
 
     protected Message message;
     @BeforeSuite
@@ -51,11 +53,12 @@ public class TestBase {
         driver.manage().window().maximize();
 
         wait=new WebDriverWait(driver, 10);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+       // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(ConfigurationReader.getProperty("url"));
 
         loginPage = new LoginPage();
         message = new Message();
+        poll=new Poll();
 
 
 
