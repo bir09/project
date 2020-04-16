@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BrowserUtil {
+public class BrowserUtilities {
     /**
      * Pause test for some time
      *

@@ -3,6 +3,7 @@ package com.bitrix24.base;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.bitrix24.utilities.BrowserUtilities;
 import com.bitrix24.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import com.bitrix24.utilities.ConfigurationReader;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
