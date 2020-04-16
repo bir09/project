@@ -10,7 +10,7 @@ public class Message {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(id = "feed-add-post-form-tab-message")
+    @FindBy(xpath = "//span[@id='feed-add-post-form-tab-message']")
     public WebElement messageTab;
 
     @FindBy(xpath = "//div[@id='post-buttons-bottom']//span[@title='Link']")
