@@ -6,6 +6,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.bitrix24.pages.LoginPage;
 import com.bitrix24.pages.Message;
 import com.bitrix24.pages.Poll;
+import com.bitrix24.pages.Topic;
 import com.bitrix24.utilities.BrowserUtilities;
 import com.bitrix24.utilities.Driver;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +29,8 @@ public class TestBase {
     private ExtentHtmlReporter htmlReporter;
     protected LoginPage loginPage;
     protected Poll poll;
+    protected Topic topic;
+
 
     protected Message message;
     @BeforeSuite
@@ -59,6 +62,7 @@ public class TestBase {
         loginPage = new LoginPage();
         message = new Message();
         poll=new Poll();
+        topic = new Topic();
 
 
 
