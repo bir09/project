@@ -54,6 +54,9 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(ConfigurationReader.getProperty("url"));
 
+        loginPage = new LoginPage();
+        message = new Message();
+
 
 
     }
