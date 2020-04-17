@@ -19,9 +19,10 @@ import org.testng.annotations.BeforeSuite;
 import com.bitrix24.utilities.ConfigurationReader;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
 
 public class TestBase {
+
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected ExtentReports report;
@@ -33,46 +34,46 @@ public class TestBase {
 
 
     protected Message message;
+
     @BeforeSuite
-    public void setUpSuite(){
-        report=new ExtentReports();
-        String path=System.getProperty("user.dir")+"/test-output/report.html";
-        htmlReporter=new ExtentHtmlReporter(path);
+    public void setUpSuite() {
+        report = new ExtentReports();
+        String path = System.getProperty("user.dir") + "/test-output/report.html";
+        htmlReporter = new ExtentHtmlReporter(path);
         htmlReporter.config().setReportName("Bitrix24 Automated Tests");
         report.attachReporter(htmlReporter);
-        report.setSystemInfo("Enviroment","QA");
+        report.setSystemInfo("Enviroment", "QA");
         report.setSystemInfo("Browser", ConfigurationReader.getProperty("browser"));
     }
 
     @AfterSuite
-    public void tearDownSuite(){
+    public void tearDownSuite() {
         report.flush();
     }
 
 
     @BeforeMethod
-    public void setupMethod(){
-        driver= Driver.getDriver();
+    public void setupMethod() {
+        driver = Driver.getDriver();
         driver.manage().window().maximize();
 
-        wait=new WebDriverWait(driver, 10);
-       // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 10);
+        // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(ConfigurationReader.getProperty("url"));
 
         loginPage = new LoginPage();
         message = new Message();
-        poll=new Poll();
+        poll = new Poll();
         topic = new Topic();
-
 
 
     }
 
     @AfterMethod
     public void tearDownMethod(ITestResult iTestResult) throws IOException {
-        if(iTestResult.getStatus()==ITestResult.FAILURE){
+        if (iTestResult.getStatus() == ITestResult.FAILURE) {
             test.fail(iTestResult.getName());
-            String screenShot= BrowserUtilities.getScreenshot(iTestResult.getName());
+            String screenShot = BrowserUtilities.getScreenshot(iTestResult.getName());
             test.addScreenCaptureFromPath(screenShot);
         }
         Driver.closeDriver();

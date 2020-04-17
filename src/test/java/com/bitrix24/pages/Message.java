@@ -28,6 +28,22 @@ public class Message {
     @FindBy(xpath = "//body/a")
     public WebElement linkInMessageBody;
 
+    @FindBy(xpath = "//blockquote[@class='bxhtmled-quote']")
+    public WebElement quoteblock;
+
+    @FindBy(xpath = "//span[@title='Quote text']/i")
+    public WebElement quoteIcon;
+
+    @FindBy(xpath= "(//button[@class='ui-btn ui-btn-lg ui-btn-primary'])[1]")
+    public WebElement sendButton;
+
+    @FindBy(xpath= "(//div[@class='blog-post-quote'])[1]/table/tbody/tr/td")
+    public WebElement quoteSent;
+
+
+
+
+
 
 }
 
