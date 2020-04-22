@@ -4,97 +4,32 @@ import com.bitrix24.base.TestBase;
 import com.bitrix24.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
-import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class FilterTest extends TestBase {
 
     @Test
-    public void test() throws InterruptedException {
+    public void test() {
 //        TODO  As a user, I should be able to use "Filter  and search" functionality on Active Stream.
         // TODO 1. User should be able to search by clicking on default filters. (work, favorate, my activity, annoucements, and workflows)
+
         test = report.createTest("Filter Sidebar");
         test.info("Login into Betrix24");
         loginPage.login(ConfigurationReader.getProperty("username_helpdesk8"), ConfigurationReader.getProperty("password"));
-        test.info("Click on the filter and search box ");
-        message.fSBox.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        WebElement searchBox =  message.fSBox;
 
-        Thread.sleep(3000);
-        test.info("Verify user is able to click on work");
-        message.workbtn.click();
-        Thread.sleep(3000);
-        test.info("make sure in the search box");
-        System.out.println(message.verifyFilter.getText());
-        Thread.sleep(2000);
-        test.info("remove work");
-        message.removeBtn.click();
-        Thread.sleep(2000);
-        test.info("click search Box");
-        message.fSBox.click();
-        Thread.sleep(2000);
+        test.info("Click on the search Box");
+        searchBox.click();
+        test.info("clicking on each item on the filter sidebar to verify it functions");
+        for (WebElement list: message.fSideBar){
+            list.click();
+            System.out.println(message.verifyFilter.getText());
+            message.removeBtn.click();
+            searchBox.click();
 
-
-        test.info("Verify user is able to click on Favorites");
-        message.favBtn.click();
-        Thread.sleep(2000);
-        test.info("make sure it in the search box");
-        System.out.println(message.verifyFilter.getText());
-        test.info("remove favorites");
-        message.removeBtn.click();
-        Thread.sleep(2000);
-        test.info("click search Box");
-        message.fSBox.click();
-        Thread.sleep(3000);
-
-        test.info("Verify user is able to click on My Activity");
-        message.activityBtn.click();
-        Thread.sleep(2000);
-        test.info("make sure in the search box");
-        System.out.println(message.verifyFilter.getText());
-        test.info("remove My Activity");
-        message.removeBtn.click();
-        Thread.sleep(2000);
-        test.info("click search Box");
-        message.fSBox.click();
-        Thread.sleep(3000);
-
-        test.info("Verify user is able to click on announcements");
-        message.annBtn.click();
-        Thread.sleep(2000);
-        test.info("make sure in the search box");
-        System.out.println(message.verifyFilter.getText());
-        Thread.sleep(2000);
-        test.info("remove announcements");
-        message.removeBtn.click();
-        Thread.sleep(2000);
-        test.info("click search Box");
-        message.fSBox.click();
-        Thread.sleep(3000);
-
-
-
-        test.info("Verify user is able to click on Workflow");
-        message.workFlowBtn.click();
-        Thread.sleep(2000);
-        test.info("make sure in the search box");
-        System.out.println(message.verifyFilter.getText());
-        Thread.sleep(2000);
-        test.info("remove workFlow");
-        message.removeBtn.click();
-        Thread.sleep(3000);
-        test.info("click search Box");
-        message.fSBox.click();
-
-
-
-
-
-
-
-
-
-
+        }
 
 
     }
